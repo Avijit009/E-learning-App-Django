@@ -77,7 +77,7 @@ def update_profile(request):
             else:
                 messages.warning(request, 'Some information is not valid !')
 
-    return render(request, 'profile.html', context={'form': form})
+    return render(request, 'account/profile.html', context={'form': form})
 
 
 @login_required

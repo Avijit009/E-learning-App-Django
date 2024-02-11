@@ -31,11 +31,11 @@
             <ul>
                 <li><a href="{% url 'home'%}">Home</a></li>
                 <li><a href="{% url 'quiz'%}">Quiz</a></li>
-                {% if user.student_profile %}
+                {% if user.learner_profile %}
                 <li><a href="{% url 'ask_question'%}">Ask Question</a></li>
                 {% endif %}
 
-                {% if user.teacher_profile %}
+                {% if user.instructor_profile %}
                 <li><a href="{% url 'post_quiz' %}">Add Quiz</a></li>
                 <li><a href="{% url 'write_article' %}">Post Article</a></li>
                 <li><a href="{% url 'my_article' %}">My Article</a></li>
