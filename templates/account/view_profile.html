@@ -4,41 +4,41 @@
 Profile
 {% endblock title %}
 
-{% block body_block %}
+{% block content %}
 <div class="container">
 
-    {% if teacher %}
+    {% if instructor %}
 
-    {% if teacher.profile_image %}
-    <img src="{{teacher.profile_image.url}}" alt="" style="width: 300px;height:300px;border-radius:50%;margin-bottom:20px">
+    {% if instructor.profile_image %}
+    <img src="{{instructor.profile_image.url}}" alt="" style="width: 300px;height:300px;border-radius:50%;margin-bottom:20px">
 
     {% endif %}
 
 
-    <h4>Full Name :{{teacher.full_name}}</h4>
-    <h6>Date of Birth : {{teacher.date_of_birth}}</h6>
-    <h6>Subject: {{teacher.subject}}</h6>
-    <h6>Qualification : {{teacher.qualification}}</h6>
-    <h6>Phone Number : {{teacher.phone_no}}</h6>
-    <span>Joined At : {{teacher.join_date}}</span>
+    <h4>Full Name :{{instructor.full_name}}</h4>
+    <h6>Date of Birth : {{instructor.date_of_birth}}</h6>
+    <h6>Subject: {{instructor.subject}}</h6>
+    <h6>Qualification : {{instructor.qualification}}</h6>
+    <h6>Phone Number : {{instructor.phone_no}}</h6>
+    <span>Joined At : {{instructor.join_date}}</span>
     {% else %}
 
-    {% if student.profile_image %}
-    <img src="{{student.profile_image.url}}" alt=""
+    {% if learner.profile_image %}
+    <img src="{{learner.profile_image.url}}" alt=""
         style="width: 300px;height:300px;border-radius:50%;margin-bottom:20px">
 
     {% endif %}
-    <h4>Full Name :{{student.full_name}}</h4>
-    <h6>Date of Birth : {{student.date_of_birth}}</h6>
-    <h6>School Name : {{student.school_name}}</h6>
-    <h6>Class : {{student.your_class}}</h6>
-    <h6>Phone Number : {{student.phone_no}}</h6>
-    <span>Joined At : {{student.join_date}}</span>
+    <h4>Full Name :{{learner.full_name}}</h4>
+    <h6>Date of Birth : {{learner.date_of_birth}}</h6>
+    <h6>School Name : {{learner.insti_name}}</h6>
+    <h6>Class : {{learner.study_in}}</h6>
+    <h6>Phone Number : {{learner.phone_no}}</h6>
+    <span>Joined At : {{learner.join_date}}</span>
 
     {% endif %}
     <br><br>
-    <a href="{% url 'App_login:profile'%}" class="btn btn-primary">Update Profile</a>
+    <a href="{% url 'profile'%}" class="btn btn-primary">Update Profile</a>
 
 </div>
 
-{% endblock body_block %}
+{% endblock content %}

@@ -6,31 +6,31 @@ Home
 {% endblock title %}
 
 
-{% block body_block %}
+{% block content %}
 <div class="row mx-4 ">
 
-    {% for articale in articales %}
-    <a href="{% url 'App_student:article_details' pk=articale.pk%}" class="text-decoration-none text-dark">
+    {% for article in articles %}
+    <a href="{% url 'article_details' pk=article.pk%}" class="text-decoration-none text-dark">
         <div class="col-12 article">
             <div class="row">
                 <div class="col-10">
 
-                    <h2>{{forloop.counter}}. {{articale.title}}</h2>
-                    <p>{{articale.description|range_filter}} <a
-                            href="{% url 'App_student:article_details' pk=articale.pk%}"
+                    <h2>{{forloop.counter}}. {{article.title}}</h2>
+                    <p>{{article.description|range_filter}} <a
+                            href="{% url 'article_details' pk=article.pk%}"
                             class="text-decoration-none">see more</a></p>
                     <h4>Published By :
-                        {% if articale.author.full_name %}
-                        {{articale.author.full_name}}
+                        {% if article.author.full_name %}
+                        {{article.author.full_name}}
                         {% else %}
-                        {{articale.author}}
+                        {{article.author}}
                         {% endif %}
                     </h4>
-                    <h6>Published Date: {{articale.published_at}}</h6>
+                    <h6>Published Date: {{article.published_at}}</h6>
                 </div>
-                {% if articale.image %}
+                {% if article.image %}
                 <div class="col-2">
-                    <img src="{{articale.image.url}}" alt="" width="300px" height="300px">
+                    <img src="{{article.image.url}}" alt="" width="300px" height="300px">
                 </div>
 
                 {% endif %}
@@ -44,4 +44,4 @@ Home
 {% endfor %}
 </div>
 
-{% endblock body_block %}
+{% endblock content %}

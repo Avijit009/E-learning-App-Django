@@ -20,7 +20,7 @@ def register(request):
             messages.success(request, 'Account Created Successfully !')
             return HttpResponseRedirect(reverse('login'))
 
-    return render(request, 'account/singup.html', context={'form': form})
+    return render(request, 'account/register.html', context={'form': form})
 
 
 def user_login(request):
@@ -47,7 +47,7 @@ def user_logout(request):
 
 
 @login_required
-def edit_profile(request):
+def update_profile(request):
     learner_profile = InstructorProfile.objects.filter(user=request.user)
     instructor_profile = LearnerProfile.objects.filter(user=request.user)
 
@@ -77,7 +77,7 @@ def edit_profile(request):
             else:
                 messages.warning(request, 'Some information is not valid !')
 
-    return render(request, 'account/profile.html', context={'form': form})
+    return render(request, 'profile.html', context={'form': form})
 
 
 @login_required

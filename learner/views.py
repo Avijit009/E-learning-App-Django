@@ -5,8 +5,8 @@ from django.urls import reverse
 
 from instructor.models import Article, Quiz, QuizAnswar
 from account.models import LearnerProfile, InstructorProfile
-from .forms import AskQuestionForm, AnswarQuestionForm
-from .models import AskedQuestion, AnswarQuestion
+from .forms import AskQuestionForm, AnswerQuestionForm
+from .models import AskedQuestion, AnswerQuestion
 
 # Create your views here.
 
@@ -32,19 +32,19 @@ def quiz(request):
         ans = QuizAnswar.objects.filter(user=request.user, quiz=quiz)
 
         if ans.exists():
-            dic.update({'answar': True})
+            dic.update({'answer': True})
         else:
-            dic.update({'answar': False})
+            dic.update({'answer': False})
 
     return render(request, 'learner/quiz.html', context={'allquiz': allquiz})
 
 
 @login_required
-def answar(request, pk):
+def answer(request, pk):
     quiz = Quiz.objects.get(pk=pk)
     if request.method == 'POST':
-        answar = request.POST.get('answar')
-        if quiz.correct_ans == answar:
+        answer = request.POST.get('answer')
+        if quiz.correct_ans == answer:
             quiz_ans = QuizAnswar.objects.get_or_create(
                 user=request.user, quiz=quiz)
             if quiz_ans[1]:
@@ -86,14 +86,14 @@ def show_question(request):
 
 
 @login_required
-def answar_question(request, pk):
+def answer_question(request, pk):
     question = AskedQuestion.objects.get(pk=pk)
-    answars = AnswarQuestion.objects.filter(question=question)
+    answers = AnswerQuestion.objects.filter(question=question)
     instructor = InstructorProfile.objects.filter(user=request.user)
     if instructor.exists:
-        form = AnswarQuestionForm()
+        form = AnswerQuestionForm()
         if request.method == 'POST':
-            form = AnswarQuestionForm(request.POST)
+            form = AnswerQuestionForm(request.POST)
             if form.is_valid():
                 ansquestionform = form.save(commit=False)
                 ansquestionform.instructor = instructor[0]
@@ -101,4 +101,4 @@ def answar_question(request, pk):
                 ansquestionform.save()
                 return HttpResponseRedirect(reverse('App_learner:question_details', kwargs={'pk': question.pk}))
 
-    return render(request, 'learner/question_details.html', context={'question': question, 'form': form, 'answars': answars})
+    return render(request, 'learner/question_details.html', context={'question': question, 'form': form, 'answers': answers})

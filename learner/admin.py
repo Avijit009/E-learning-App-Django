@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AnswarQuestion, AskedQuestion
+from .models import AnswerQuestion, AskedQuestion
 # Register your models here.
 
 
@@ -11,8 +11,8 @@ class AskedQuestionAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-@admin.register(AnswarQuestion)
-class AnswarQuestionAdmin(admin.ModelAdmin):
+@admin.register(AnswerQuestion)
+class AnswerQuestionAdmin(admin.ModelAdmin):
     '''Admin View for AnswarQuestion'''
 
-    list_display = ('id', 'instructor', 'question', 'answar')
+    list_display = ('id', 'instructor', 'question', 'answer')

@@ -7,7 +7,6 @@
 
 body {
     width: 100%;
-    
 }
 
 html {
@@ -18,10 +17,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 2%;
-    background-color: #06BCCC;
+    padding: 0px 2%;
+    background-color: #6a4c92;
     position: sticky;
-    top: 0;
 
 }
 
@@ -33,43 +31,46 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-size: 18px;
     transition: color 0.5s;
 }
 
 nav ul li a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(247, 100, 100);
 }
 
-.app_logo {
+.icon {
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-.icon img {
+.icon_image {
     margin-right: 10px;
-    width: 45px;
+    width: 120px;
+    /* height: 200px; */
 }
 
-.icon p {
-    font-size: 30px;
-    font-family: cursive;
-}
 
 .join a {
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
-    color: #000;
+    color: #fffcfc;
 }
+
+.join a:hover {
+    color: rgb(247, 100, 100);
+}
+
 .article{
     border: 1px solid #ccc;
     margin-bottom: 20px;
     padding: 20px;
     transition: all 0.5s;
 }
+
 .article:hover{
     box-shadow: 0 0 8px rgba(0, 0, 0, .5);
     cursor: pointer;

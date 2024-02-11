@@ -5,21 +5,14 @@
 Quiz
 {% endblock title %}
 
-{% block body_block %}
+{% block content %}
 <div class="container">
     <h4> Your Mark: <span class="badge text-bg-dark">{{user|mark_count}}</span></h4>
 
     {% for quiz in allquiz %}
 
-
-
-
-    <form action="{% url 'App_student:quiz_ans' pk=quiz.pk %}" method="post" class="mt-5">
+    <form action="{% url 'quiz_ans' pk=quiz.pk %}" method="post" class="mt-5">
         <h4>{{forloop.counter}} .{{quiz}}
-
-            
-
-
 
         </h4>
         {% csrf_token %}
@@ -32,4 +25,4 @@ Quiz
     </form>
     {% endfor %}
 </div>
-{% endblock body_block %}
+{% endblock content %}

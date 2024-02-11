@@ -6,22 +6,18 @@
 {% endblock title %}
 
 
-{% block body_block %}
+{% block content %}
 <div class="row mx-4 ">
-
-
     <div class="col-12">
 
         <div class="col-10">
 
             <h1>{{question.subject}}</h1>
 
-
             <p>{{question.description|linebreaks}} </p>
 
             {% if question.student.full_name%}
             <h6>Asked By :{{question.student.full_name}}</h6>
-
 
             {% else %}
 
@@ -31,18 +27,18 @@
                 <div style="border: 1px solid #ccc; padding:10px">
                     <h5>Answars </h5>
 
-                    {% for answar in answars %}
+                    {% for answer in answers %}
                     <div>
 
                         <h4>
 
-                            {% if answar.teacher.full_name %}
-                            {{answar.teacher.full_name}}
+                            {% if answer.instructor.full_name %}
+                            {{answer.instructor.full_name}}
                             {% else %}
-                            {{answar.teacher}}
+                            {{answer.instructor}}
                             {% endif %}
 
-                            : {{answar.answar}}
+                            : {{answer.answer}}
 
                         </h4>
 
@@ -53,27 +49,20 @@
 
             </h4>
 
-            {% if user.teacher_profile %}
+            {% if user.instructor_profile %}
 
             <form action="" method="post">
                 {% csrf_token %}
                 {{form|crispy}}
-                <input type="submit" value="Answar" class="btn btn-success">
+                <input type="submit" value="Answer" class="btn btn-success">
             </form>
             {% endif %}
-
-
-
         </div>
 
     </div>
 
-
+</div>
 
 </div>
 
-
-
-</div>
-
-{% endblock body_block %}
+{% endblock content %}

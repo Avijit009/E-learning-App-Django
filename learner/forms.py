@@ -1,5 +1,5 @@
 from django import forms
-from .models import AskedQuestion, AnswarQuestion
+from .models import AskedQuestion, AnswerQuestion
 
 
 class AskQuestionForm(forms.ModelForm):
@@ -8,7 +8,7 @@ class AskQuestionForm(forms.ModelForm):
         exclude = ['learner']
 
 
-class AnswarQuestionForm(forms.ModelForm):
+class AnswerQuestionForm(forms.ModelForm):
     class Meta:
-        model = AnswarQuestion
+        model = AnswerQuestion
         exclude = ['instructor', 'question']

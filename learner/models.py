@@ -11,7 +11,7 @@ class AskedQuestion(models.Model):
     def __str__(self):
         return self.subject
     
-class AnswarQuestion(models.Model):
+class AnswerQuestion(models.Model):
     instructor=models.ForeignKey(InstructorProfile,on_delete=models.CASCADE)
     question=models.ForeignKey(AskedQuestion,on_delete=models.CASCADE)
-    answar=models.TextField()
+    answer=models.TextField()

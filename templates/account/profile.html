@@ -6,16 +6,16 @@
 Profile
 {% endblock title %}
 
-{% block body_block%}
+{% block content%}
 <div class="container mt-5">
     <h1 class="text-center">Profile </h1>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form|crispy}}
         <input type="submit" value="Save" class="btn btn-primary">
-        <a href="{% url 'App_login:change_password' %}" class="btn btn-warning">CHange Password</a>
+        <a href="{% url 'change_password' %}" class="btn btn-warning">Change Password</a>
 
     </form>
 </div>
 
-{% endblock body_block%}
+{% endblock content%}
