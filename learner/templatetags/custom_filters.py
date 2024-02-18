@@ -1,5 +1,5 @@
 from django import template
-from instructor.models import QuizAnswar,Quiz
+from instructor.models import QuizAnswer,Quiz
 
 
 register = template.Library()
@@ -12,4 +12,4 @@ def range_filter(value):
 
 @register.filter
 def mark_count(user):
-    return QuizAnswar.objects.filter(user=user).count()
+    return QuizAnswer.objects.filter(user=user).count()

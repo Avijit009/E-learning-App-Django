@@ -48,8 +48,8 @@ def user_logout(request):
 
 @login_required
 def update_profile(request):
-    learner_profile = InstructorProfile.objects.filter(user=request.user)
-    instructor_profile = LearnerProfile.objects.filter(user=request.user)
+    learner_profile = LearnerProfile.objects.filter(user=request.user)
+    instructor_profile = InstructorProfile.objects.filter(user=request.user)
 
     if learner_profile.exists():
         form = LearnerProfileForm(instance=learner_profile[0])
@@ -82,8 +82,9 @@ def update_profile(request):
 
 @login_required
 def view_profile(request):
-    instructor = InstructorProfile.objects.filter(user=request.user)
     learner = LearnerProfile.objects.filter(user=request.user)
+    instructor = InstructorProfile.objects.filter(user=request.user)
+    
     dic = {}
     if instructor.exists():
         dic['instructor'] = instructor[0]

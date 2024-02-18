@@ -1,9 +1,8 @@
 from django.db import models
-from account.models import InstructorProfile
 from django.conf import settings
+
+from account.models import InstructorProfile
 # Create your models here.
-
-
 class Category(models.Model):
     name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -14,14 +13,13 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'categories'
 
-
 class Article(models.Model):
     author = models.ForeignKey(
         InstructorProfile, on_delete=models.CASCADE, related_name='author')
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='article_category')
     title = models.CharField(max_length=300)
-    image = models.ImageField(upload_to='article_image', null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to='article_image')
     description = models.TextField()
     published_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -42,8 +40,7 @@ class Quiz(models.Model):
     def __str__(self):
         return self.quiz_question
 
-
-class QuizAnswar(models.Model):
+class QuizAnswer(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, related_name='user_ans')
     quiz = models.ForeignKey(

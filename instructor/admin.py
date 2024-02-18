@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Quiz, QuizAnswar, Category
+from .models import Article, Quiz, QuizAnswer, Category
 
 # Register your models here.
 
@@ -29,8 +29,8 @@ class QuizAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-@admin.register(QuizAnswar)
-class QuizAnswarAdmin(admin.ModelAdmin):
-    '''Admin View for QuizAnswar'''
+@admin.register(QuizAnswer)
+class QuizAnswerAdmin(admin.ModelAdmin):
+    '''Admin View for QuizAnswer'''
 
     list_display = ('id', 'user', 'quiz')

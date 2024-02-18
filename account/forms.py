@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+
 from .models import User, InstructorProfile, LearnerProfile
 
 
@@ -15,8 +16,7 @@ class InstructorProfileForm(forms.ModelForm):
 
     class Meta:
         model = InstructorProfile
-        fields = ['profile_image', 'full_name', 'qualification',
-                  'subject', 'date_of_birth', 'phone_no']
+        fields = ['profile_image', 'full_name', 'qualification', 'subject', 'date_of_birth', 'phone_no']
 
 
 class LearnerProfileForm(forms.ModelForm):
